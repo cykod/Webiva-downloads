@@ -15,6 +15,7 @@ class Downloads::AdminController < ModuleController
   permit 'downloads_config'
 
   register_handler :members, :view,  "Downloads::ManageUserController"
+  register_handler :shop, :product_feature, "Downloads::AddDownloadShopFeature"
 
   public
 
