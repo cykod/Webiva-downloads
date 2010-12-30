@@ -15,6 +15,7 @@ class Downloads::PageFeature < ParagraphFeature
     webiva_feature(:downloads_page_downloads,data) do |c|
       c.loop_tag('download') { |t| data[:downloads] }
       c.h_tag('download:name') { |t| t.locals.download.downloads_item.name }
+      c.h_tag('download:description') { |t| t.locals.download.downloads_item.description }
       c.link_tag('download:download') { |t| site_node.link t.locals.download.id.to_s }
     end
   end
