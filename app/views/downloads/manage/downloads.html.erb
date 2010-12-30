@@ -1,0 +1,11 @@
+<% action_panel do |p| -%>
+  <%= p.link "Create a new Download", :action => 'download', :icon => 'add.gif' %>
+<% end -%>
+
+<hr/>
+
+<div class='admin_content'>
+  <div id='download_table'>
+    <%= render :partial => 'download_table' %>
+  </div>
+</div>

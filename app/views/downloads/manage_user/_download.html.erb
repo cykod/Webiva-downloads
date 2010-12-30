@@ -1,0 +1,10 @@
+<% admin_form_for :download, @download, :html => {'j-action' => 'submitform', 'submitform' => url_for(:action => 'download')} do |f| -%>
+  <%= hidden_field_tag :tab, @tab %>
+  <%= f.select :downloads_item_id, DownloadsItem.select_options_with_nil, :required => true %>
+  <%= f.spacer %>
+  <%= f.submit_tag 'Save' %>
+<% end -%>
+
+<script>
+JSetup.setup();
+</script>

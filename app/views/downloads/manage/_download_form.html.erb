@@ -1,0 +1,11 @@
+<% admin_form_for :download, @download do |f| -%>
+  <%= f.text_field :name %>
+  <%= f.filemanager_file :domain_file_id, :type => 'all' %>
+  <%= f.text_area :description, :rows => 3 %>
+  <%= f.spacer %>
+  <%= f.submit_tag @download.id ? 'Save' : 'Create' %>
+<% end -%>
+
+<script>
+JSetup.setup();
+</script>

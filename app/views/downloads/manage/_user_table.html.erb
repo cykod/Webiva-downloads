@@ -1,0 +1,8 @@
+<% active_table_for :user_table, @active_table_output,
+  :refresh_url => {:action => 'display_user_table', :path => @download.id} do |t| -%>
+  <% active_tr 'user', t.id do |tr| %>
+    <td><%= h t.end_user ? t.end_user.name : '-' %></td>
+    <td><%= t.created_at.localize(DEFAULT_DATETIME_FORMAT) %></td>
+  <% end -%>
+<% end -%>
+

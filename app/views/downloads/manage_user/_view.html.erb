@@ -1,0 +1,22 @@
+<script>
+DownloadsData = {
+  viewDownloads: function() {
+    $j('#tab_<%= @tab %>').load("<%= url_for :action => 'view', :path => [@user.id], :tab => @tab %>");
+  }
+}
+</script>
+
+<% ajax_tabs ['Downloads', ['Add Download', jvh("$j('#download').load('#{url_for(:action => 'download', :path => @user.id, :tab => @tab)}')")]], 'Downloads' do |t| -%>
+
+<% t.tab do -%>
+<div id="download_table">
+  <%= render :partial => 'download_table' %>
+</div>
+<% end -%>
+
+<% t.tab do -%>
+<div id="download">
+</div>
+<% end -%>
+
+<% end -%>
