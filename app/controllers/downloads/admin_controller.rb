@@ -1,7 +1,7 @@
 
 class Downloads::AdminController < ModuleController
 
-  component_info 'Downloads', :description => 'Downloads support', :access => :private, :dependencies => ['shop']
+  component_info 'Downloads', :description => 'Downloads support', :access => :private
 
   # Register a handler feature
   register_permission_category :downloads, "Downloads" ,"Permissions related to Downloads"

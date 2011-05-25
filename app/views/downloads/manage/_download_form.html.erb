@@ -1,5 +1,6 @@
 <% admin_form_for :download, @download do |f| -%>
   <%= f.text_field :name %>
+  <%= f.text_field :category %>
   <%= f.filemanager_file :domain_file_id, :type => 'all' %>
   <%= f.text_area :description, :rows => 3 %>
   <%= f.spacer %>
