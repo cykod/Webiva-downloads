@@ -10,12 +10,15 @@ class Downloads::AdminController < ModuleController
                                     [:config, 'Configure Downloads', 'Configure Downloads' ]
                                    ]
 
+  register_handler :user_segment, :fields, 'Downloads::UserSegmentField'
+
   content_model :downloads
 
   permit 'downloads_config'
 
   register_handler :members, :view,  "Downloads::ManageUserController"
   register_handler :shop, :product_feature, "Downloads::AddDownloadShopFeature"
+
 
   public
 
