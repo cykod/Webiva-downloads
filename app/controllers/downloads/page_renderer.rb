@@ -33,7 +33,13 @@ class Downloads::PageRenderer < ParagraphRenderer
 
           DownloadsUser.push_user(item.id,myself.id)
 
-          return data_paragraph :domain_file => item.domain_file
+          run_triggered_actions('action', item, myself)
+
+          if item.domain_file.local?
+            return data_paragraph :domain_file => item.domain_file
+          else
+            redirect_to item.domain_file.url
+          end
         else
           session[:lock_lockout] = controller.request.request_uri      
           return redirect_paragraph @options.redirect_page_url

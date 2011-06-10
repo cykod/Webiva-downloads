@@ -7,7 +7,8 @@ class Downloads::PageController < ParagraphController
                          :inputs => [[:id, 'Download Item Id', :path]]
 
   editor_for :automatic_downloads, :name => 'Automatic Downloads', :feature => :downloads_page_downloads,
-    :inputs => [[:id, 'Download Item Id', :path]]
+    :inputs => [[:id, 'Download Item Id', :path]], :triggers => [['Item Downloaded','action']]
+
 
 
   class AutomaticDownloadsOptions < HashModel
@@ -20,5 +21,10 @@ class Downloads::PageController < ParagraphController
       fld(:downloads_ids, :select, :options => Proc.new { DownloadsItem.select_options } , :html => {:multiple => true, :size => 5 }), 
       fld(:redirect_page_id, :page_selector)
     )
+
+    def options_partial
+      "/application/triggered_options_partial"
+    end
+
   end
 end
