@@ -28,7 +28,7 @@ class Downloads::ManageController < ModuleController
       end
     end
 
-    @active_table_output = download_table_generate params, :order => :updated_at
+    @active_table_output = download_table_generate params, :order => 'updated_at DESC'
 
     render :partial => 'download_table' if display
   end
